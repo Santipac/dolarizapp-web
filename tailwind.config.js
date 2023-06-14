@@ -13,7 +13,8 @@ export default {
         'grey': '#EFEFEF',
         'yellow': '#FFF172',
         'magenta': '#FD9FDD',
-        'violet': '#AF96FB'
+        'violet': '#AF96FB',
+        'reddy': '#FF5959'
       },
       fontFamily: {
         'sans': 'Work Sans',
