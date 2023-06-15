@@ -14,7 +14,8 @@ export default {
         'yellow': '#FFF172',
         'magenta': '#FD9FDD',
         'violet': '#AF96FB',
-        'reddy': '#FF5959'
+        'reddy': '#FF5959',
+        'turquoise': '#49DBC8'
       },
       fontFamily: {
         'sans': 'Work Sans',
