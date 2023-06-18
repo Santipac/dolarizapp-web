@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../../stories/Button';
-import { Navbar } from '../Navbar';
+import { Navbar } from '../ui/Navbar';
 
 export const Hero: React.FC = () => {
   return (

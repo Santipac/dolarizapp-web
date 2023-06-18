@@ -22,7 +22,8 @@ export default {
         'body': 'Inter'
       },
       boxShadow: {
-        'button': '2px 2px 0px #000000'
+        'button': '2px 2px 0px #000000',
+        'card-modal': '8px 8px 0px #1E1E1E;'
       }
     },
   },

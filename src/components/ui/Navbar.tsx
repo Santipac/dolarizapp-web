@@ -1,8 +1,8 @@
 import React from 'react';
-import { Badge } from '../stories/Badge';
+import { Badge } from '../../stories/Badge';
 
 import Marquee from 'react-fast-marquee';
-import { useDolar } from '../hooks/useDolar';
+import { useDolar } from '../../hooks/useDolar';
 import { Loader2 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -23,7 +23,11 @@ export const Navbar: React.FC = () => {
           <Badge
             key={i}
             primary={i % 2 === 0}
-            label={`$${dolar.price} - ${dolar.name}`}
+            label={`$${dolar.price} - ${
+              dolar.name === 'Dolar Contado con Liqui'
+                ? 'Dolar CCL'
+                : dolar.name
+            }`}
           />
         ))}
       </Marquee>

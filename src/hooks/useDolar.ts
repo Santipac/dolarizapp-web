@@ -12,11 +12,19 @@ const getQuotations = async (): Promise<Dolar[]> => {
     const sellPrice = casa.venta;
     const name = casa.nombre;
 
-    if (!buyPrice.includes('No Cotiza') && name.includes('Dolar ')) {
+    if (
+      !buyPrice.includes('No Cotiza') &&
+      name.includes('Dolar ') &&
+      buyPrice !== '0'
+    ) {
       arr.push({ name, price: buyPrice, type: 'compra' });
     }
 
-    if (!sellPrice.includes('No Cotiza') && name.includes('Dolar ')) {
+    if (
+      !sellPrice.includes('No Cotiza') &&
+      name.includes('Dolar ') &&
+      sellPrice !== '0'
+    ) {
       arr.push({ name, price: sellPrice, type: 'venta' });
     }
 
