@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Input } from '../../stories/Input';
 import { Button } from '../../stories/Button';
 import { useDolar } from '../../hooks/useDolar';
@@ -6,6 +6,7 @@ import { getConversion } from '../../helpers/getConvertion';
 import { Conversion } from '../../interfaces/dolar';
 import { Modal } from '../../stories/Modal';
 import { motion as m } from 'framer-motion';
+import { container, item } from '../../utils/variantsAnimations';
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -31,10 +32,9 @@ export const Calculate: React.FC = () => {
   const [conversions, setConversions] = useState<Conversion[]>([]);
   const [inputValue, setInputvalue] = useState<string>('');
 
-  console.log(conversions);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (inputValue === '') return;
     const quotations = query.data?.filter(dolar => dolar.type === 'venta');
     if (!quotations) return;
     const convertedValues = getConversion(quotations, inputValue);
@@ -43,8 +43,20 @@ export const Calculate: React.FC = () => {
   return (
     <div className="my-16 flex flex-col items-center">
       <section className=" mx-auto max-w-xl flex justify-center items-center h-[50vh]">
-        <section className="flex flex-col items-center gap-20">
-          <h2 className="text-5xl sm:text-8xl font-extrabold">Calcular</h2>
+        <m.section
+          className="flex flex-col items-center gap-20"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <m.h2
+            className="text-5xl sm:text-8xl font-extrabold"
+            variants={item}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            Calcular
+          </m.h2>
           <form
             onSubmit={handleSubmit}
             className="space-y-7 w-full flex flex-col"
@@ -52,7 +64,7 @@ export const Calculate: React.FC = () => {
             <Input value={inputValue} handleInput={setInputvalue} />
             <Button type="submit" label="Convertir" />
           </form>
-        </section>
+        </m.section>
       </section>
       {conversions.length > 0 && (
         <m.div
