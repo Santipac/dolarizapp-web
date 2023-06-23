@@ -1,6 +1,6 @@
 // ./src/stories/Button.js
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 const getSizeClasses = (size?: string | 'small' | 'large') => {
   switch (size) {
@@ -11,34 +11,23 @@ const getSizeClasses = (size?: string | 'small' | 'large') => {
       return 'px-6 py-3';
     }
     default: {
-      return 'px-5 py-2.5';
+      return 'px-5 py-2.5 w-full';
     }
   }
 };
 
-const getModeClasses = (isPrimary: boolean) =>
-  isPrimary
-    ? 'text-white bg-pink-600 border-pink-600 '
-    : 'text-slate-700 bg-transparent border-slate-700 dark:text-white dark:border-white';
-
 const BASE_BUTTON_CLASSES =
-  'cursor-pointer rounded-full border-2 font-bold leading-none inline-block';
+  'text-dark bg-greeny font-body cursor-pointer border-2 leading-none inline-block font-extrabold border-dark shadow-button';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
-  primary = false,
-  size = 'large',
-  label = 'Button',
-  ...props
-}) => {
+export const Button = ({ size = 'large', label = 'Button', ...props }) => {
   const computedClasses = useMemo(() => {
-    const modeClass = getModeClasses(primary);
     const sizeClass = getSizeClasses(size);
 
-    return [modeClass, sizeClass].join(' ');
-  }, [primary, size]);
+    return sizeClass;
+  }, [size]);
 
   return (
     <button
