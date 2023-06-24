@@ -35,13 +35,13 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
       </button>
       {/* Modal */}
       <div
-        className={`z-50 fixed inset-0 flex justify-center items-center transition-colors ${
-          open ? 'visible bg-black/20' : 'invisible'
+        className={`px-2 z-50 fixed inset-0 flex justify-center items-center transition-colors ${
+          open ? 'visible bg-black/40' : 'invisible'
         }`}
         onClick={() => set0pen(false)}
       >
         <div
-          className={`bg-grey rounded-lg shadow p-6 transition-all max-w-md min-w-[19rem] h-min ${
+          className={`bg-grey rounded-lg shadow py-4 px-2 min-[464px]:p-6 transition-all max-w-lg min-w-[19rem] h-min ${
             open ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
           }`}
           onClick={e => e.stopPropagation()}
@@ -49,7 +49,9 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
           {/*Content*/}
           <article className="flex flex-col w-full gap-4">
             <div className="flex items-center justify-between">
-              <h2 className="font-extrabold text-xl text-dark">{label}</h2>
+              <h2 className="font-extrabold text-xl min-[464px]:text-2xl text-dark">
+                {label}
+              </h2>
               <button
                 className="py-1 px-2 font-extrabold"
                 onClick={() => set0pen(false)}
@@ -82,16 +84,20 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
                 <>
                   {' '}
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-2xl font-extrabold text-orange">
+                    <h2 className="text-xl min-[464px]:text-2xl font-extrabold text-orange">
                       ¿Que es el {label}?
                     </h2>
-                    <p>{dolarInfo[label][0]}</p>
+                    <p className="text-xs leading-5 sm:text-sm">
+                      {dolarInfo[label][0]}
+                    </p>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-2xl font-extrabold text-orange">
+                    <h2 className="text-xl min-[464px]:text-2xl font-extrabold text-orange">
                       ¿Quienes lo utilizan?
                     </h2>
-                    <p>{dolarInfo[label][1]}</p>
+                    <p className="text-xs leading-5 sm:text-sm">
+                      {dolarInfo[label][1]}
+                    </p>
                   </div>
                 </>
               )}
