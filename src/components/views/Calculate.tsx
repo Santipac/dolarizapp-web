@@ -31,7 +31,6 @@ export const Calculate: React.FC = () => {
   const query = useDolar();
   const [conversions, setConversions] = useState<Conversion[]>([]);
   const [inputValue, setInputvalue] = useState<string>('');
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue === '') return;
@@ -41,7 +40,7 @@ export const Calculate: React.FC = () => {
     setConversions([...convertedValues]);
   };
   return (
-    <div className="my-16 flex flex-col items-center">
+    <div id="calcular" className="my-16 flex flex-col items-center">
       <section className=" mx-auto max-w-xl flex justify-center items-center h-[50vh]">
         <m.section
           className="flex flex-col items-center gap-20"

@@ -1,6 +1,7 @@
 import { CopyCheckIcon, Files, XIcon } from 'lucide-react';
 import React, { useState } from 'react';
 import { formatConversion } from '../helpers/formatConversion';
+import dolarInfo from '../constants/dolarInfo';
 
 interface Props {
   label: string;
@@ -56,7 +57,13 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
                 <XIcon className="h-5 w-5" />
               </button>
             </div>
-            <div className="border-2 border-dark w-full h-12 rounded-lg flex ">
+
+            <div className="border-2 border-dark w-full h-12 rounded-lg flex relative">
+              {isCopied && (
+                <span className="absolute right-0 bottom-0 -mb-8 bg-greeny px-2 rounded-full">
+                  Copied!
+                </span>
+              )}
               <input
                 className="flex-1 rounded-l-md px-2 font-extrabold"
                 value={formatConversion(Number(value))}
@@ -69,6 +76,25 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
               >
                 {isCopied ? <CopyCheckIcon /> : <Files />}
               </button>
+            </div>
+            <div className="my-2 space-y-6">
+              {dolarInfo[label].length > 0 && (
+                <>
+                  {' '}
+                  <div className="flex flex-col gap-2">
+                    <h2 className="text-2xl font-extrabold text-orange">
+                      ¿Que es el {label}?
+                    </h2>
+                    <p>{dolarInfo[label][0]}</p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h2 className="text-2xl font-extrabold text-orange">
+                      ¿Quienes lo utilizan?
+                    </h2>
+                    <p>{dolarInfo[label][1]}</p>
+                  </div>
+                </>
+              )}
             </div>
           </article>
         </div>
