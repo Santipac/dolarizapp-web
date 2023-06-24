@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '../ui/Navbar';
 import { motion as m } from 'framer-motion';
 import { container, item } from '../../utils/variantsAnimations';
+import { Link } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
   return (
@@ -29,12 +30,12 @@ export const Hero: React.FC = () => {
           las mismas
         </p>
         <div>
-          <a
-            href="#calcular"
+          <Link
+            to="calculate"
             className="text-dark bg-greeny font-body cursor-pointer border-2 leading-none inline-block font-extrabold border-dark shadow-button px-6 py-3"
           >
             Calcular
-          </a>
+          </Link>
         </div>
       </div>
     </section>
