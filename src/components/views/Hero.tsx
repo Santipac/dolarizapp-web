@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navbar } from '../ui/Navbar';
 import { motion as m } from 'framer-motion';
-import { container, item } from '../../utils/variantsAnimations';
+import { container } from '../../utils/variantsAnimations';
 import { Link } from 'react-router-dom';
+import { AnimatedTextWord } from '../ui/AnimatedWord';
+import { AnimatedCharacter } from '../ui/AnimatedCharacter';
 
 export const Hero: React.FC = () => {
   return (
@@ -15,20 +17,12 @@ export const Hero: React.FC = () => {
           initial="hidden"
           animate="show"
         >
-          <m.h1
-            className="text-dark text-5xl sm:text-8xl font-extrabold font-sans"
-            variants={item}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Dolarizapp
-          </m.h1>
+          <AnimatedCharacter text="Dolarizapp" />
         </m.div>
-
-        <p className="font-sans font-medium text-sm sm:text-lg text-center ">
-          Una app donde encontrarás distintas cotizaciones con información de
-          las mismas
-        </p>
+        <AnimatedTextWord
+          text="Una app donde encontrarás distintas cotizaciones con información de
+          las mismas"
+        />
         <div>
           <Link
             to="calculate"

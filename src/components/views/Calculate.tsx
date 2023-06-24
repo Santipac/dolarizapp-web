@@ -6,8 +6,9 @@ import { getConversion } from '../../helpers/getConvertion';
 import { Conversion } from '../../interfaces/dolar';
 import { Modal } from '../../stories/Modal';
 import { motion as m } from 'framer-motion';
-import { container, item } from '../../utils/variantsAnimations';
+import { container } from '../../utils/variantsAnimations';
 import { Link } from 'react-router-dom';
+import { AnimatedCharacter } from '../ui/AnimatedCharacter';
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -41,14 +42,14 @@ export const Calculate: React.FC = () => {
     setConversions([...convertedValues]);
   };
   return (
-    <div id="calcular" className="my-16 flex flex-col items-center">
+    <div id="calcular" className="relative flex flex-col items-center mb-16">
       <Link
         to="/"
-        className="ml-4 mt-4 fixed top-0 left-0 font-extrabold underline text-dark font-sans text-xl"
+        className="ml-4 mt-4 absolute top-0 left-0 font-extrabold underline text-dark font-sans text-xl"
       >
         Back to home
       </Link>
-      <section className=" mx-auto max-w-xl flex justify-center items-center h-[50vh]">
+      <section className="mt-16 mx-auto max-w-xl flex justify-center items-center h-[50vh]">
         {/* <Navbar /> */}
         <m.section
           className="flex flex-col items-center gap-20"
@@ -56,14 +57,7 @@ export const Calculate: React.FC = () => {
           initial="hidden"
           animate="show"
         >
-          <m.h2
-            className="text-5xl sm:text-8xl font-extrabold"
-            variants={item}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Calcular
-          </m.h2>
+          <AnimatedCharacter text="Calcular" />
           <form
             onSubmit={handleSubmit}
             className="space-y-7 w-full flex flex-col"
