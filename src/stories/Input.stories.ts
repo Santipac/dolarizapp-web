@@ -7,9 +7,6 @@ const meta = {
   title: 'Input',
   component: Input,
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -19,16 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    type: 'number',
-    isReadOnly: false,
-    value: 0,
+    value: '0',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    type: 'number',
-    isReadOnly: true,
-    value: 200,
+    value: '200',
   },
 };

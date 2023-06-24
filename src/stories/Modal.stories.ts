@@ -17,6 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     label: 'Dolar',
-    value: 450.09,
+    value: '450.09',
   },
 };

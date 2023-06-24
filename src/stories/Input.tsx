@@ -1,19 +1,14 @@
-import React from 'react';
-
 const BASE_CONTAINER_CLASSES =
   'relative flex h-12 sm:h-14 border-2 border-dark rounded-lg w-full flex-row';
 const BASE_INPUT_CLASSES =
   'p-2 bg-grey border-none ring-0 outline-0 font-extrabold text-lg w-full rounded-r-md';
 
-interface InputProps {
-  value: string;
-  classNames?: string;
-  handleInput: (value: React.SetStateAction<string>) => void;
-}
-export const Input: React.FC<InputProps> = ({
-  value,
-  classNames,
-  handleInput,
+export const Input = ({
+  value = '',
+  classNames = '',
+  handleInput = (value: string) => {
+    value;
+  },
 }) => {
   return (
     <div className={`${BASE_CONTAINER_CLASSES}  ${classNames}`}>
