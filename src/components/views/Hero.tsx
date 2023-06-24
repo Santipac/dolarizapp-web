@@ -19,10 +19,7 @@ export const Hero: React.FC = () => {
         >
           <AnimatedCharacter text="Dolarizapp" />
         </m.div>
-        <AnimatedTextWord
-          text="Una app donde encontrarás distintas cotizaciones con información de
-          las mismas"
-        />
+        <AnimatedTextWord text="Una app donde encontrarás distintas cotizaciones con información de las mismas" />
         <div>
           <Link
             to="calculate"
