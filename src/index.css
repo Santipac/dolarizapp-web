@@ -10,3 +10,21 @@ h1,h2,h3,h4{
 p{
   font-family: 'Inter', sans-serif;
 }
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f0f0f;
+  transform-origin: bottom;
+}
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #FD9FDD;
+  transform-origin: top;
+}

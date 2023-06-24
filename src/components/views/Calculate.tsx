@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Input } from '../../stories/Input';
 import { Button } from '../../stories/Button';
 import { useDolar } from '../../hooks/useDolar';
@@ -7,6 +7,7 @@ import { Conversion } from '../../interfaces/dolar';
 import { Modal } from '../../stories/Modal';
 import { motion as m } from 'framer-motion';
 import { container, item } from '../../utils/variantsAnimations';
+import { Link } from 'react-router-dom';
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -41,7 +42,14 @@ export const Calculate: React.FC = () => {
   };
   return (
     <div id="calcular" className="my-16 flex flex-col items-center">
+      <Link
+        to="/"
+        className="ml-4 mt-4 fixed top-0 left-0 font-extrabold underline text-dark font-sans text-xl"
+      >
+        Back to home
+      </Link>
       <section className=" mx-auto max-w-xl flex justify-center items-center h-[50vh]">
+        {/* <Navbar /> */}
         <m.section
           className="flex flex-col items-center gap-20"
           variants={container}

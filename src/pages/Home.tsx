@@ -1,11 +1,13 @@
-import { Calculate, Hero } from '../components/views';
+import Transition from '../components/ui/Transition';
+import { Hero } from '../components/views';
 
 function HomePage() {
   return (
-    <main className="min-h-[200vh] w-full bg-violet overflow-hidden scroll-smooth">
-      <Hero />
-      <Calculate />
-    </main>
+    <Transition>
+      <main className="h-screen w-full bg-violet overflow-hidden scroll-smooth">
+        <Hero />
+      </main>
+    </Transition>
   );
 }
 
