@@ -53,7 +53,7 @@ export const AnimatedCharacter: React.FC<Props> = ({ text }) => {
         <motion.span
           variants={child}
           key={index}
-          className="text-dark text-5xl sm:text-8xl font-extrabold font-sans"
+          className="text-dark text-5xl min-[550px]:text-7xl sm:text-8xl font-extrabold font-sans"
         >
           {letter === ' ' ? '\u00A0' : letter}
         </motion.span>

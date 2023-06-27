@@ -47,7 +47,7 @@ export const Calculate: React.FC = () => {
         to="/"
         className="ml-4 mt-4 absolute top-0 left-0 font-extrabold underline text-dark font-sans text-xl"
       >
-        Back to home
+        Volver al inicio
       </Link>
       <section className="mt-16 mx-auto max-w-xl flex justify-center items-center h-[50vh]">
         {/* <Navbar /> */}
