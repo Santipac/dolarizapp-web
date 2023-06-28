@@ -12,7 +12,7 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
   const onHandleCopy = () => {
-    navigator.clipboard.writeText(`$${value}`);
+    navigator.clipboard.writeText(`ARS ${value}`);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);

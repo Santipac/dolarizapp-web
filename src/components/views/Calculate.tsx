@@ -49,7 +49,7 @@ export const Calculate: React.FC = () => {
       >
         Volver al inicio
       </Link>
-      <section className="mt-16 mx-auto max-w-xl flex justify-center items-center h-[50vh]">
+      <section className="my-16 mx-auto max-w-xl flex justify-center items-center h-[45vh]">
         {/* <Navbar /> */}
         <m.section
           className="flex flex-col items-center gap-20"

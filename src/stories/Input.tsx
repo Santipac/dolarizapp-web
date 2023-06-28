@@ -12,8 +12,8 @@ export const Input = ({
 }) => {
   return (
     <div className={`${BASE_CONTAINER_CLASSES}  ${classNames}`}>
-      <div className="h-full w-14 bg-greeny rounded-l-md flex items-center justify-center border-r-2 border-dark">
-        <span className="text-xl font-extrabold ">$</span>
+      <div className="h-full w-16 bg-greeny rounded-l-md flex items-center justify-center border-r-2 border-dark">
+        <span className="text-xl font-extrabold px-4">U$D</span>
       </div>
 
       <input

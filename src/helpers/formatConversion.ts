@@ -1,6 +1,9 @@
 export function formatConversion(price: number) {
-  return price.toLocaleString('es-AR', {
+  const formatter = new Intl.NumberFormat('es-AR', {
     style: 'currency',
     currency: 'ARS',
+    currencyDisplay: 'code',
   });
+
+  return formatter.format(price);
 }
