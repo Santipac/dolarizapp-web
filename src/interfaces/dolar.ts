@@ -29,4 +29,5 @@ export interface Dolar {
 export interface Conversion {
   name: string;
   value: string;
+  convertedTo: 'USD' | 'ARS';
 }

@@ -9,6 +9,8 @@ import { motion as m } from 'framer-motion';
 import { container } from '../../utils/variantsAnimations';
 import { Link } from 'react-router-dom';
 import { AnimatedCharacter } from '../ui/AnimatedCharacter';
+import Select from '../../stories/Select';
+import { SelectOption } from '../../interfaces/select';
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -29,16 +31,22 @@ const itemAnimation = {
   },
 };
 
+const options: SelectOption[] = [
+  { value: 'ARS', label: 'ARS' },
+  { value: 'USD', label: 'USD' },
+];
+
 export const Calculate: React.FC = () => {
   const query = useDolar();
+  const [currency, setCurrency] = useState<'USD' | 'ARS'>('USD');
   const [conversions, setConversions] = useState<Conversion[]>([]);
-  const [inputValue, setInputvalue] = useState<string>('');
+  const [amount, setAmount] = useState<string>('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputValue === '') return;
+    if (amount === '') return;
     const quotations = query.data?.filter(dolar => dolar.type === 'venta');
     if (!quotations) return;
-    const convertedValues = getConversion(quotations, inputValue);
+    const convertedValues = getConversion(quotations, amount, currency);
     setConversions([...convertedValues]);
   };
   return (
@@ -49,8 +57,8 @@ export const Calculate: React.FC = () => {
       >
         Volver al inicio
       </Link>
+      {/* Form Container */}
       <section className="my-16 mx-auto max-w-xl flex justify-center items-center h-[45vh]">
-        {/* <Navbar /> */}
         <m.section
           className="flex flex-col items-center gap-20"
           variants={container}
@@ -60,16 +68,25 @@ export const Calculate: React.FC = () => {
           <AnimatedCharacter text="Calcular" />
           <form
             onSubmit={handleSubmit}
-            className="space-y-7 w-full flex flex-col"
+            className="space-y-7 w-full flex flex-col px-2"
           >
-            <Input value={inputValue} handleInput={setInputvalue} />
+            <div className="relative flex h-12 sm:h-14 border-2 border-dark w-full flex-row">
+              <Select
+                options={options}
+                selectValue={currency}
+                setSelectValue={setCurrency}
+              />
+              <Input value={amount} handleInput={setAmount} />
+            </div>
             <Button type="submit" label="Convertir" />
           </form>
         </m.section>
       </section>
+
+      {/* Card Container */}
       {conversions.length > 0 && (
         <m.div
-          className="grid grid-cols-1 sm:grid-cols-2 auto-rows-auto md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 auto-rows-auto md:grid-cols-3 gap-8 "
           variants={containerAnimation}
           initial="hidden"
           animate="visible"
@@ -77,6 +94,7 @@ export const Calculate: React.FC = () => {
           {conversions.map((conv, i) => (
             <m.div key={i} variants={itemAnimation}>
               <Modal
+                currency={conv.convertedTo}
                 value={conv.value}
                 label={
                   conv.name === 'Dolar Contado con Liqui'

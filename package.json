@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^1.2.2",
     "@tanstack/react-query-devtools": "^4.29.14",
     "axios": "^1.4.0",
     "framer-motion": "^10.12.16",

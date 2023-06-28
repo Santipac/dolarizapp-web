@@ -6,13 +6,14 @@ import dolarInfo from '../constants/dolarInfo';
 interface Props {
   label: string;
   value: string;
+  currency: 'USD' | 'ARS';
 }
-export const Modal: React.FC<Props> = ({ label, value }) => {
+export const Modal: React.FC<Props> = ({ label, value, currency }) => {
   const [open, set0pen] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
   const onHandleCopy = () => {
-    navigator.clipboard.writeText(`ARS ${value}`);
+    navigator.clipboard.writeText(`${currency} ${value}`);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -27,7 +28,7 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
       >
         <h2 className="text-xl uppercase font-extrabold text-dark">{label} </h2>
         <h2 className="text-4xl font-extrabold text-dark w-full truncate">
-          {formatConversion(Number(value))}
+          {formatConversion(Number(value), currency)}
         </h2>
         <div className="absolute bottom-0 left-0 w-full bg-orange h-12 rounded-b-xl flex items-center justify-center font-extrabold text-xl uppercase text-dark">
           Ver Más
@@ -62,13 +63,13 @@ export const Modal: React.FC<Props> = ({ label, value }) => {
 
             <div className="border-2 border-dark w-full h-12 rounded-lg flex relative">
               {isCopied && (
-                <span className="absolute right-0 bottom-0 -mb-8 bg-greeny px-2 rounded-full">
-                  Copied!
+                <span className="absolute right-0 bottom-0 -mb-8 bg-greeny px-2 rounded-full font-semibold">
+                  Copiado!
                 </span>
               )}
               <input
                 className="flex-1 rounded-l-md px-2 font-extrabold"
-                value={formatConversion(Number(value))}
+                value={formatConversion(Number(value), currency)}
                 readOnly
               />
               <button
