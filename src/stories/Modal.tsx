@@ -1,6 +1,5 @@
 import { CopyCheckIcon, Files, XIcon } from 'lucide-react';
 import React, { useState } from 'react';
-import { formatConversion } from '../helpers/formatConversion';
 import dolarInfo from '../constants/dolarInfo';
 
 interface Props {
@@ -28,7 +27,7 @@ export const Modal: React.FC<Props> = ({ label, value, currency }) => {
       >
         <h2 className="text-xl uppercase font-extrabold text-dark">{label} </h2>
         <h2 className="text-4xl font-extrabold text-dark w-full truncate">
-          {formatConversion(Number(value), currency)}
+          {`${currency} ${Number(value)}`}
         </h2>
         <div className="absolute bottom-0 left-0 w-full bg-orange h-12 rounded-b-xl flex items-center justify-center font-extrabold text-xl uppercase text-dark">
           Ver Más
@@ -69,7 +68,7 @@ export const Modal: React.FC<Props> = ({ label, value, currency }) => {
               )}
               <input
                 className="flex-1 rounded-l-md px-2 font-extrabold"
-                value={formatConversion(Number(value), currency)}
+                value={`${currency} ${Number(value)}`}
                 readOnly
               />
               <button

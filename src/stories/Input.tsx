@@ -10,6 +10,8 @@ export const Input = ({
   return (
     <input
       type="number"
+      min={0}
+      step={0.0001}
       className={BASE_INPUT_CLASSES}
       value={value}
       onChange={e => handleInput(e.target.value)}
