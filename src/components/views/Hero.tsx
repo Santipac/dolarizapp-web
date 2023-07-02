@@ -5,8 +5,7 @@ import { container } from '../../utils/variantsAnimations';
 import { Link } from 'react-router-dom';
 import { AnimatedTextWord } from '../ui/AnimatedWord';
 import { AnimatedCharacter } from '../ui/AnimatedCharacter';
-import reversed from '../../../public/Illustration-Reversed.png';
-import ilustration from '../../../public/Illustration.png';
+
 export const Hero: React.FC = () => {
   return (
     <section className="h-screen w-full rounded-b-[4rem] lg:rounded-b-[7.5rem] bg-grey border-4 border-dark flex justify-center items-center relative overflow-hidden">
@@ -30,16 +29,6 @@ export const Hero: React.FC = () => {
           </Link>
         </div>
       </div>
-      <img
-        src={reversed}
-        alt="ilustración de una mano con un billete "
-        className="w-32 min-[550px]:w-fit object-contain absolute bottom-0 left-0"
-      />
-      <img
-        src={ilustration}
-        alt="ilustración de una mano con un billete "
-        className="w-32 min-[550px]:w-fit object-contain absolute bottom-0 right-0"
-      />
     </section>
   );
 };
