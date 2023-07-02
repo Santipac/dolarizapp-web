@@ -35,6 +35,9 @@ const getQuotations = async (): Promise<Dolar[]> => {
 };
 
 export const useDolar = () => {
-  const query = useQuery(['quotations'], getQuotations);
+  const query = useQuery(['quotations'], getQuotations, {
+    staleTime: 15 * 1000,
+    keepPreviousData: true,
+  });
   return query;
 };
