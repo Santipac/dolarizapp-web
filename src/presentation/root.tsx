@@ -6,6 +6,7 @@ import {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './sections/home';
+import { ErrorPage } from './components/ui/ErrorPage';
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     id: 'root',
     path: '/',
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -24,7 +26,6 @@ const router = createBrowserRouter([
           return { Component: CalculatePage };
         },
       },
-      { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
 ]);

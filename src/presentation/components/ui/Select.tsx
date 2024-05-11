@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 
-interface SelectOption {
+export interface SelectOption {
   value: 'USD' | 'ARS';
   label: string;
 }
