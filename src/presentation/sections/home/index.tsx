@@ -5,12 +5,10 @@ import { AnimatedCharacter } from '~/presentation/components/animated/AnimatedCh
 import { AnimatedTextWord } from '~/presentation/components/animated/AnimatedWord';
 import { Navbar } from '~/presentation/components/ui/Navbar';
 
-
-
 function HomePage() {
   return (
     <main className="h-screen w-full bg-violet overflow-hidden scroll-smooth">
-      <section className="h-screen w-full rounded-b-[4rem] lg:rounded-b-[7.5rem] bg-grey border-4 border-dark flex justify-center items-center relative overflow-hidden">
+      <section className="h-screen w-full  bg-grey border-4 border-dark flex justify-center items-center relative overflow-hidden">
         <Navbar />
         <div className="flex flex-col gap-8 text-center px-4">
           <m.div

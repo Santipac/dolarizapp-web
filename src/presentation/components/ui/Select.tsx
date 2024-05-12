@@ -8,9 +8,13 @@ export interface SelectOption {
 interface Props {
   options: SelectOption[];
   selectValue: string;
-  setSelectValue: React.Dispatch<React.SetStateAction<'USD' | 'ARS'>>;
+  handleChangeCurrency: (value: 'USD' | 'ARS') => void;
 }
-const Select: React.FC<Props> = ({ options, selectValue, setSelectValue }) => {
+const Select: React.FC<Props> = ({
+  options,
+  selectValue,
+  handleChangeCurrency,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   // Estado para controlar la apertura del menú desplegable
 
@@ -19,7 +23,7 @@ const Select: React.FC<Props> = ({ options, selectValue, setSelectValue }) => {
   };
 
   const handleOptionClick = (value: 'USD' | 'ARS') => {
-    setSelectValue(value);
+    handleChangeCurrency(value);
     setIsOpen(false);
   };
 

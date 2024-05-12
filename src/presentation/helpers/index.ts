@@ -26,7 +26,7 @@ export function getQuoteDescription(type: QUOTE_TYPE): string | null {
         case type === QUOTE_TYPE.TARJETA:
             return 'Es el valor de la cotización del dólar estadounidense en el mercado oficial, más el impuesto PAIS (30%), el impuesto a las ganancias (100%) y el impuesto a cuenta de bienes personales (25%).'
         case type === QUOTE_TYPE.CCL:
-            return 'Cotización del dólar estadounidense en el mercado bursátil. Es decir, el precio de compra y venta de dólares en el mercado de valores. También conocido como Dólar CCL.'
+            return 'Cotización del dólar estadounidense en el mercado bursátil. Es decir, el precio de compra y venta de dólares en el mercado de valores. También conocido como Dólar Contado con Liquidación.'
         case type === QUOTE_TYPE.CRYPTO:
             return 'Cotización del dólar estadounidense en el mercado de criptomonedas. Es decir, el precio de compra y venta de dólares en el mercado de criptoactivos.'
         case type === QUOTE_TYPE.MAYORISTA:
@@ -46,15 +46,28 @@ export function getQuoteLabel(type: QUOTE_TYPE): string | null {
 
 type GetConvertionParams = {
     quote: Dollar
-    value: number
-    convertion: CONVERTION
+    amount: number
+    convertion: 'USD' | 'ARS'
 }
-export function getConvertion({ convertion, quote, value }: GetConvertionParams): Dollar {
-    if (convertion === CONVERTION.ARS_TO_USD) {
-        return { ...quote, buyPrice: Number((value / quote.buyPrice).toFixed(2)), sellPrice: Number((value / quote.sellPrice).toFixed(2)) }
+export function getConvertion({ convertion, quote, amount }: GetConvertionParams): Dollar {
+    if (convertion === 'ARS') {
+        return { ...quote, buyPrice: Number((amount / quote.buyPrice).toFixed(2)), sellPrice: Number((amount / quote.sellPrice).toFixed(2)) }
     }
-    if (convertion === CONVERTION.USD_TO_ARS) {
-        return { ...quote, buyPrice: value * quote.buyPrice, sellPrice: value * quote.sellPrice }
+    if (convertion === 'USD') {
+        return { ...quote, buyPrice: amount * quote.buyPrice, sellPrice: amount * quote.sellPrice }
     }
     return quote
+}
+
+export function formatConversion(amount: number, currency: 'ARS' | 'USD') {
+    const formatter = new Intl.NumberFormat(
+        currency === 'ARS' ? 'en-US' : 'es-AR',
+        {
+            style: 'currency',
+            currency: currency === 'ARS' ? 'USD' : 'ARS',
+            currencyDisplay: 'code',
+        }
+    );
+
+    return formatter.format(amount);
 }
