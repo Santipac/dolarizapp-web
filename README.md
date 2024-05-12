@@ -9,8 +9,5 @@ Algunas cotizaciones poseen información adicional sobre ellas.
 Decidí hacer este proyecto por el simple hecho de querer aprender y jugar con algunas tecnologías como Storybook, React-Query. 
 Quería hacer un proyecto fácil sin muchas complicaciones, pero en lo posible útil. Así que decidí hacer una app que te ayuda a hacer estas conversiones rapidamente.
 
-## Por hacer
-Si bien ya es un proyecto funcional, no dudo que hay cosas en cuanto a código que mejorar, así que la idea es agregarle testing (e2e y Unit-Testing) para aprender más sobre el mismo. 
-Y realizar optimizaciones sobre las peticiones. Con el manejo de Caché, estado y demás con React-Query.
 
 ![Dolarizapp](https://github.com/Santipac/Dolarizapp/assets/92342946/671c0df0-8a7c-484c-a083-47490da57df6)
